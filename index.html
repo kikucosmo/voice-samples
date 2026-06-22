@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="ja">
+	<head>
+		<title>菊宗みゆき ｜ Voice Samples</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="菊宗みゆき 声優・ナレーター ボイスサンプル" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;900&family=IBM+Plex+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- EmailJS -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<style>
+			/* ---- 基本：フォント・背景 ---- */
+			body, input, select, textarea,
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Source Sans Pro', 'IBM Plex Sans JP', Helvetica, sans-serif;
+			}
+			body { background-color: #FDFDFF !important; }
+
+			/* ---- ヘッダー余白調整 ---- */
+			#main .inner > header { padding-top: 3em; }
+			#main .inner > header h1 { margin-bottom: 0.33em; color: #C19969; }
+			#main .inner > header p  { margin-top: -0.33em; }
+
+			/* ---- 見出し（h2）↓タイル間の余白を1/3に縮小 ---- */
+			#main .inner > h2 {
+				letter-spacing: 0.05em;
+				margin-top: 3.5em;
+				margin-bottom: 0.67em;
+			}
+			#main .inner > section.tiles { margin-top: 0.67em !important; }
+
+			.tiles article h2 { letter-spacing: 0.04em; font-size: 1em; line-height: 1.4; }
+
+			/* ---- 画像なしタイル：色ブロック ---- */
+			.tiles article > .image {
+				padding-top: 41%;
+				background-color: #f6f6f6;
+			}
+			.tiles article > .image:before { opacity: 1; }
+			.tiles article > .image:after  { display: none; }
+
+			/* ---- タイルカラー：#0065B2 と #67A5DA を交互に ---- */
+			.tiles article.style1 > .image:before,
+			.tiles article.style3 > .image:before,
+			.tiles article.style5 > .image:before { background-color: #0065B2; }
+
+			.tiles article.style2 > .image:before,
+			.tiles article.style4 > .image:before,
+			.tiles article.style6 > .image:before { background-color: #67A5DA; }
+
+			/* ---- ホバー：明度だけ下げた同一色相・同一彩度 ---- */
+			/* main.css が opacity:0.35 をセットするので opacity:1 も上書き必須 */
+			/* #0065B2 (H≈206°, S=100%, L=35%) → L=22% → #003F70 */
+			body:not(.is-touch) .tiles article.style1:hover > .image:before,
+			body:not(.is-touch) .tiles article.style3:hover > .image:before,
+			body:not(.is-touch) .tiles article.style5:hover > .image:before {
+				background-color: #003F70;
+				opacity: 1 !important;
+			}
+
+			/* #67A5DA (H≈210°, S=56%, L=63%) → L=45% → #327BB3 */
+			body:not(.is-touch) .tiles article.style2:hover > .image:before,
+			body:not(.is-touch) .tiles article.style4:hover > .image:before,
+			body:not(.is-touch) .tiles article.style6:hover > .image:before {
+				background-color: #327BB3;
+				opacity: 1 !important;
+			}
+
+			/* 4列レイアウト（広い画面） */
+			@media (min-width: 737px) {
+				.tiles article { width: calc(25% - 1.5em) !important; }
+			}
+
+			/* 再生アイコン */
+			.tiles article .vicon { display: block; font-size: 1em; line-height: 1; margin-bottom: 0.4em; opacity: 0.9; }
+			.tiles article .vicon:before { content: '▶'; }
+			.tiles article.playing .vicon:before { content: '❚❚'; }
+
+			/* 再生位置バー */
+			.tiles article .vprog {
+				position: absolute; left: 0; bottom: 0;
+				height: 5px; width: 0;
+				background-color: rgba(255,255,255,0.9);
+				border-radius: 0 0 4px 4px;
+				z-index: 4; transition: width 0.15s linear; pointer-events: none;
+			}
+			.tiles article.playing > .image:before { background-color: #333333; opacity: 0.55; }
+			.tiles article .content p { margin: 0; opacity: 0.9; }
+
+			/* ---- フッター背景 ---- */
+			#footer { background-color: #FBE4E2 !important; }
+
+			/* ---- 送信ボタン ---- */
+			input[type="submit"].primary,
+			input[type="reset"].primary,
+			input[type="button"].primary,
+			button.primary,
+			.button.primary {
+				background-color: #67A5DA !important;
+				color: #ffffff !important;
+				box-shadow: none;
+			}
+			input[type="submit"].primary:hover,
+			input[type="reset"].primary:hover,
+			input[type="button"].primary:hover,
+			button.primary:hover,
+			.button.primary:hover {
+				background-color: #4A88BE !important;
+			}
+			input[type="submit"].primary:active,
+			input[type="reset"].primary:active,
+			input[type="button"].primary:active,
+			button.primary:active,
+			.button.primary:active {
+				background-color: #3A74A8 !important;
+			}
+
+			/* ---- カスタムSNSアイコン ---- */
+			.custom-social-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				vertical-align: middle;   /* X と note の y 座標を揃える */
+				width: 2.65em;
+				height: 2.65em;
+				border: solid 1px #C19969;
+				border-radius: 4px;
+				text-decoration: none;
+				transition: border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+			}
+			.custom-social-icon img {
+				width: 1.15em;
+				height: 1.15em;
+				object-fit: contain;
+				display: block;
+				opacity: 0.65;
+				transition: opacity 0.2s ease-in-out;
+			}
+			/* noteアイコンは「n」が視覚的に小さいので少し大きく */
+			.note-icon img { width: 1.45em; height: 1.45em; }
+			.custom-social-icon:hover { border-color: #9A7A4F; }
+			.custom-social-icon:hover img { opacity: 1; }
+
+			/* ---- h1字間 ---- */
+			#main .inner > header h1 { letter-spacing: 0.05em; }
+
+			/* ---- フッター：文字色・ボーダー全部 #C19969 ---- */
+			#footer { color: #C19969; }
+			#footer h2 { color: #C19969; }
+			#footer .copyright, #footer .copyright a { color: #C19969; }
+			#footer input[type="text"],
+			#footer input[type="email"],
+			#footer textarea {
+				border-color: #C19969 !important;
+				color: #555;          /* 入力テキストは読みやすい色をキープ */
+			}
+			#footer input[type="text"]::placeholder,
+			#footer input[type="email"]::placeholder,
+			#footer textarea::placeholder { color: #C1996990; }
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+						<header>
+							<h1>菊宗みゆき</h1>
+							<p>声優・ナレーター ｜ ボイスサンプル</p>
+						</header>
+
+						<!-- クレジット -->
+						<h2>クレジット</h2>
+						<section class="tiles">
+							<article class="style1" data-file="audio/00_credit.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>クレジット</h2></a>
+								<span class="vprog"></span>
+							</article>
+						</section>
+
+						<!-- ナレーション -->
+						<h2 id="narration">ナレーション</h2>
+						<section class="tiles">
+							<article class="style2" data-file="audio/narration_natural.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>ナチュラル</h2><div class="content"><p>0:20</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style3" data-file="audio/narration_variety.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>バラエティ</h2><div class="content"><p>0:20</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style4" data-file="audio/narration_news.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>ローカルニュース</h2><div class="content"><p>0:21</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style5" data-file="audio/narration_documentary.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>教養番組</h2><div class="content"><p>0:21</p></div></a>
+								<span class="vprog"></span>
+							</article>
+						</section>
+
+						<!-- 女性 -->
+						<h2 id="female">女性</h2>
+						<section class="tiles">
+							<article class="style6" data-file="audio/female_natural.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>自然体の女性</h2><div class="content"><p>0:28</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style1" data-file="audio/female_innocent.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>無邪気なお嬢様</h2><div class="content"><p>0:27</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style2" data-file="audio/female_shrewd.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>したたかな女性</h2><div class="content"><p>0:24</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style3" data-file="audio/female_senior.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>頼もしい先輩</h2><div class="content"><p>0:24</p></div></a>
+								<span class="vprog"></span>
+							</article>
+						</section>
+
+						<!-- 少年 -->
+						<h2 id="boy">少年</h2>
+						<section class="tiles">
+							<article class="style4" data-file="audio/boy_timid.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>気弱な少年</h2><div class="content"><p>0:27</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style5" data-file="audio/boy_difficult.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>気難しい少年</h2><div class="content"><p>0:20</p></div></a>
+								<span class="vprog"></span>
+							</article>
+							<article class="style6" data-file="audio/boy_rough.mp3">
+								<span class="image"></span>
+								<a href="#"><span class="vicon" aria-hidden="true"></span><h2>乱暴な少年</h2><div class="content"><p>0:27</p></div></a>
+								<span class="vprog"></span>
+							</article>
+						</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>お問い合わせ</h2>
+							<form id="contact-form" method="post" action="#">
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="お名前" />
+									</div>
+									<div class="field half">
+										<input type="email" name="email" id="email" placeholder="メールアドレス" />
+									</div>
+									<div class="field">
+										<textarea name="message" id="message" placeholder="ご用件"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="送信" class="primary" id="submit-btn" /></li>
+								</ul>
+							</form>
+							<p id="form-success" style="display:none; margin-top:1em; font-size:0.9em; line-height:1.7; color:#C19969;">
+								お問い合わせありがとうございます。<br>
+								入力いただいたメールアドレスに控えをお送りいたしました。<br>
+								ご返信までしばらくお待ちください。
+							</p>
+						</section>
+						<section>
+							<h2>Follow</h2>
+							<ul class="icons">
+								<li>
+									<a href="https://x.com/kikucosmo" class="custom-social-icon" aria-label="X (Twitter)">
+										<img src="images/x-icon.png" alt="X">
+									</a>
+								</li>
+								<li>
+									<a href="https://note.com/kikucosmo" class="custom-social-icon note-icon" aria-label="note">
+										<img src="images/note-icon.png" alt="note">
+									</a>
+								</li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; 菊宗みゆき</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/audio.js"></script>
+
+		<!-- ========================================================
+		     EmailJS 送信処理
+		     ▼ 以下の5か所を自分のEmailJS情報に書き換えてください ▼
+		======================================================== -->
+		<script>
+		(function () {
+			// ① Public Key（EmailJS → Account → General → Public Key）
+			emailjs.init('hfKoGaVSLs06yTdFB');
+
+			document.getElementById('contact-form').addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				var name    = document.getElementById('name').value.trim();
+				var email   = document.getElementById('email').value.trim();
+				var message = document.getElementById('message').value.trim();
+
+				if (!name || !email || !message) return;
+
+				var btn = document.getElementById('submit-btn');
+				btn.value    = '送信中…';
+				btn.disabled = true;
+
+				var params = {
+					from_name : name,
+					from_email: email,
+					message   : message
+				};
+
+				// ② Service ID（EmailJS → Email Services → あなたのサービスのID）
+				var SERVICE_ID = 'gmail_kikumune';
+
+				// ③ 自分宛の通知メール用テンプレートID
+				var NOTIFY_TEMPLATE_ID = 'template_notify01';
+
+				// ④ 問い合わせ者への自動返信用テンプレートID
+				var REPLY_TEMPLATE_ID = 'template_reply01';
+
+				Promise.all([
+					emailjs.send(SERVICE_ID, NOTIFY_TEMPLATE_ID, params),
+					emailjs.send(SERVICE_ID, REPLY_TEMPLATE_ID,  params)
+				])
+				.then(function () {
+					document.getElementById('name').value    = '';
+					document.getElementById('email').value   = '';
+					document.getElementById('message').value = '';
+					btn.value    = '送信';
+					btn.disabled = false;
+					document.getElementById('form-success').style.display = 'block';
+				})
+				.catch(function (err) {
+					console.error('EmailJS error:', err);
+					btn.value    = '送信';
+					btn.disabled = false;
+					alert('送信に失敗しました。時間をおいて再度お試しください。');
+				});
+			});
+		})();
+		</script>
+
+	</body>
+</html>
